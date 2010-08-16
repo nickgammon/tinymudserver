@@ -26,6 +26,7 @@ warranty, and with no claim as to its suitability for any purpose.
 
 #include <stdexcept>
 #include <iostream>
+#include <algorithm>
 
 using namespace std; 
 

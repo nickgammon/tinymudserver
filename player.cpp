@@ -15,6 +15,8 @@ warranty, and with no claim as to its suitability for any purpose.
 // standard library includes ...
 
 #include <vector>
+#include <algorithm>
+#include <limits>
 #include <stdexcept>
 #include <iostream>
 #include <fstream>

@@ -13,6 +13,8 @@ warranty, and with no claim as to its suitability for any purpose.
 */
 
 #include <string>
+#include <algorithm>
+
 using namespace std; 
 
 #include "strings.h"

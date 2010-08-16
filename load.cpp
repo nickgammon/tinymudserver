@@ -14,6 +14,7 @@ warranty, and with no claim as to its suitability for any purpose.
 
 // standard library includes ...
 
+#include <limits>
 #include <fstream>
 #include <iostream>
 
