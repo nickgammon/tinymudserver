@@ -73,7 +73,7 @@ class fCapitals : public unary_function<unsigned char,unsigned char>
       c1 = tolower (c);
 
     // work out whether next letter should be capitals
-    bUpper = isalnum (c) == 0;
+    bUpper = isalnum (c) == 0 && c < 0x80;
     return c1; 
     }
   };  // end of class fCapitals
