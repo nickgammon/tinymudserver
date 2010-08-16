@@ -1,0 +1,91 @@
+========================================================
+Tiny Mud Server (tinymudserver)
+========================================================
+
+Author: Nick Gammon
+Date:   27th July 2004
+Web:    http://www.gammon.com.au/
+
+Post questions, comments, bug reports to the forum at:
+
+  http://www.gammon.com.au/forum/
+
+COPYRIGHT
+
+ (C) Copyright Nick Gammon 2004. Permission to copy, use, modify, sell and
+distribute this software is granted provided this copyright notice appears
+in all copies.
+
+ You may use it as a starting point for writing your own MUD server.
+
+CREDIT
+
+ I would appreciated being credited in the event that you use this code.
+
+NO WARRANTY
+
+ This software is provided "as is" without express or implied
+warranty, and with no claim as to its suitability for any purpose.
+ 
+INSTALLATION
+
+ The simplest way to compile the program is to type "make". This should use the
+ enclosed "Makefile" to compile and link. If this doesn't work, to compile without
+ using the makefile:
+
+   gcc tinymudserver.cpp -o tinymudserver -g -Wall
+
+EXECUTION
+
+ Run the server like this:
+
+  ./tinymudserver &
+
+CONNECTING
+
+ The default behaviour is to listen for connections on port 4000 (change a constant in 
+ the code to alter this). To test the server you could connect to it like this:
+
+  telnet localhost 4000
+  
+  There is an existing player file supplied, name "Nick" password "password". 
+  This player can use the goto, transfer, setflag, clearflag, and shutdown commands.
+
+DESCRIPTION
+
+ This program demonstrates a simple MUD (Multi-User Dungeon) server - in a single file. 
+
+ It does the following:
+
+ * Accepts multiple connections from players
+ * Maintains a list of connected players
+ * Asks players for a name and password 
+ * Saves player files to disk (name, password, current room, player flags)
+ * Implements the commands: quit, look, say, tell, help, goto, transfer, shutdown, setflag, clearflag
+ * Implements movement commands (eg. n, s, e, w)
+ * Illustrates sending messages to a single player (eg. a tell) or all players
+   (eg. a say)
+ * Handles players disconnecting or quitting
+ * Illustrates a "connection dialog" - players get asked their name, then their password.
+ * Allows new players to create a character by specifying a name and password.
+ * Demonstrates using the Standard Template Library for lists, strings, vectors, maps and sets.
+ * Illustrates periodic messages using a timer (at present it just shows a message every
+   60 seconds)
+ * Illustrates rudimentary player control (eg. gagging players from talking)
+ * Loads room descriptions and exits from a disk file
+ * Loads messages from a disk file
+ * Loads control parameters from a disk file
+ 
+WHAT YOU COULD ADD
+
+ As it stands the program is too simple to be used for a full MUD, however it could be the
+ basis for writing your own. You would want to add things like this:
+
+ * Objects (eg. swords), taking/dropping things, etc.
+ * Fighting (if required)
+ * Building/extending online
+ * Logging events (eg. connections, disconnections, faults)
+ * Colour
+ * MCCP (compression)
+ * MXP  (MUD Extension Protocol)
+ * Telnet negotiation

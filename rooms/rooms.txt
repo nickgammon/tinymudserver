@@ -1,0 +1,18 @@
+1000 
+Starting room (room 1000).%rYou are standing in a fabulous, fabulous, exotic room, with all sorts of things that go 'hum' and 'plink' in the night.%r%rAs you glance around the room, you wonder what else might exist in this world.
+n 1004 s 1001 e 1002 w 1003
+1001
+Room 1001.%rYou are in room 1001. It could look better. What a let-down! This rooms has no alabaster walls, no mystic fireplace, no marble floors.
+n 1000
+1002
+Room 1002.%rYou lounge around in room 1002. The floors are carpeted with a sort of wool-nylon blend, so favoured in caverns these days. There is a corridor to the east.
+w 1000 e 1005
+1003
+Room 1003.%rThis rooms looks as if it has been rough-hewn from the very granite that forms the basis of the world itself. Unfortunately the general effect is submerged somewhat by the presence of many audio CDs stuck to the wall with sticky tape.
+e 1000
+1004
+Room 1004.%rThis is the training room. One day you might receive all sorts of interesting training here. Perhaps you might even purchase shields and armour. But not today.
+s 1000
+1005
+Eastern corridor (room 1005).%rThis east-west corridor looks like it could be interesting to follow.
+w 1002

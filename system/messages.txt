@@ -1,0 +1,5 @@
+welcome %r|-------------------- Tiny MUD Server --------------------|%r|%r| Written by Nick Gammon.%r|%r| July 2004.%r|%r| http://www.gammon.com.au/%r|%r| Welcome to tinymudserver version 2! Have fun. :)%r|---------------------------------------------------------|%r%r
+motd %rMessage Of The Day (MOTD)%r%rHere is where you place announcements to be given to people once they have joined the game.%r%r
+new_player %r%rWelcome to our MUD! Please read the help files to become familiar with our rules. :)%r%r
+existing_player %r%rWelcome back! We hope you enjoy playing today.%r%r
+help %r%r---- HELP system ----%r%rlook - look around%rquit - leave the game%rsay (something) - talk to people in the current room%rtell (someone) (something) - talk to a single player%rshutdown - shut the MUD down%rhelp - this help text%rgoto (room) - go to another room%rtransfer (someone) [ (where) ] - transfer another player here, or to another room%rsetflag (who) (what) - sets a flag for a player%rclearflag (who) (what) - clears a flag for a player%r%r
