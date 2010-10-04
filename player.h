@@ -108,6 +108,39 @@ public:
 typedef std::list <tPlayer*> tPlayerList;
 typedef tPlayerList::iterator tPlayerListIterator;
 
+
+template <typename T>
+class player_output_iterator : public std::iterator <std::output_iterator_tag, void, void, void, void>
+{
+ protected:
+   tPlayer &    player_;  // who we are outputting to
+   const char * delim_;   // delimiter between each item
+   
+ public:
+  // constructor
+  player_output_iterator (tPlayer & p, const char* d = "")
+    : player_ (p), delim_ (d) {}
+  
+  // copy constructor
+  player_output_iterator (const player_output_iterator<T>& rhs)
+   : player_ (rhs.player_), delim_ (rhs.delim_) {}
+  
+  // assignment
+  player_output_iterator<T>& operator= (const T& rhs)
+    { 
+    player_ << rhs << delim_;  
+    return *this;
+    }
+  
+  // dereference - no operation, returns reference to itself
+  player_output_iterator<T>& operator* ()     { return *this; }
+  // increment   - no operation, returns reference to itself
+  player_output_iterator<T>& operator++ ()    { return *this; }
+  // increment   -  no operation, returns reference to itself
+  player_output_iterator<T>& operator++ (int) { return *this; }
+};  // end of player_output_iterator
+
+
 // an action handler (commands, connection states)
 typedef void (*tHandler) (tPlayer * p, istream & args) ;
 
