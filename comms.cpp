@@ -21,6 +21,7 @@ warranty, and with no claim as to its suitability for any purpose.
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <unistd.h>
+#include <stdio.h>
 
 // standard library includes ...
 
