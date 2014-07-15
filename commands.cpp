@@ -340,7 +340,7 @@ void LoadCommands ()
   commandmap ["say"]      = DoSay;      // say something
   commandmap ["\""]       = DoSay;      // synonym for say
   commandmap ["tell"]     = DoTell;     // tell someone
-  commandmap ["shut"] = DoShutdown; // shut MUD down
+  commandmap ["shutdown"] = DoShutdown; // shut MUD down
   commandmap ["help"]     = DoHelp;     // show help message
   commandmap ["goto"]     = DoGoTo;     // go to room
   commandmap ["transfer"] = DoTransfer; // transfer someone else
