@@ -108,13 +108,29 @@ void DoQuit (tPlayer * p, istream & sArgs)
   p->ClosePlayer ();
   } // end of DoQuit
 
+void lookObject (tPlayer * p, string & which)
+  {
+  *p << "Looking at object " << which << "\n";
+
+  // scan available objects and display information about them ...
+  }  // end of lookObject
+
 /* look */
 
 void DoLook (tPlayer * p, istream & sArgs)
 {
  
   // TODO: add: look (thing)
-  NoMore (p, sArgs);  // check no more input
+
+  string whichObject;
+  sArgs >> ws >> whichObject;
+
+  if (!whichObject.empty ())
+    {
+    lookObject (p, whichObject);
+    return;
+    }
+    
   
   // find our current room, throws exception if not there
   tRoom * r = FindRoom (p->room);
