@@ -112,7 +112,7 @@ void LoadRooms ()
       int dir_vnum;
 
       is >> dir;  // direction, eg. n
-      is >> dir_vnum >> ws; // vnum, eg. 1234
+      is >> dir_vnum; // vnum, eg. 1234
 
       if (is.fail ())
         {
