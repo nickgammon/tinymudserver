@@ -2,14 +2,14 @@
 
  tinymudserver - an example MUD server
 
- Author:  Nick Gammon 
-          http://www.gammon.com.au/ 
+ Author:  Nick Gammon
+          http://www.gammon.com.au/
 
 (C) Copyright Nick Gammon 2004. Permission to copy, use, modify, sell and
 distribute this software is granted provided this copyright notice appears
 in all copies. This software is provided "as is" without express or implied
 warranty, and with no claim as to its suitability for any purpose.
- 
+
 */
 
 // standard library includes ...
@@ -18,7 +18,7 @@ warranty, and with no claim as to its suitability for any purpose.
 #include <fstream>
 #include <iostream>
 
-using namespace std; 
+using namespace std;
 
 #include "utils.h"
 #include "globals.h"
@@ -61,10 +61,10 @@ void LoadMessages ()
     fMessages >> sMessageCode >> ws;
     getline (fMessages, sMessageText);
     if (!(sMessageCode.empty ()))
-      messagemap [tolower (sMessageCode)] = 
+      messagemap [tolower (sMessageCode)] =
             FindAndReplace (sMessageText, "%r", "\n");
     } // end of read loop
-  
+
 } // end of LoadMessages
 
 // load rooms and exits
@@ -77,7 +77,7 @@ void LoadRooms ()
     cerr << "Could not open rooms file: " << ROOMS_FILE << endl;
     return;
     }
-  
+
   while (!(fRooms.eof ()))
     {
     int vnum;
@@ -85,14 +85,14 @@ void LoadRooms ()
     fRooms.ignore (numeric_limits<int>::max(), '\n'); // skip rest of this line
     string description;
     getline (fRooms, description);
-    
+
     // give up if no vnum or description
     if (vnum == 0 || description.empty ())
       break;
 
     // get exits
     string sLine;
-    getline (fRooms, sLine); 
+    getline (fRooms, sLine);
 
     // don't have duplicate rooms
     if (roommap [vnum] != 0)
@@ -110,46 +110,49 @@ void LoadRooms ()
       {
       string dir;
       int dir_vnum;
-        
+
       is >> dir;  // direction, eg. n
       is >> dir_vnum >> ws; // vnum, eg. 1234
-      
+
       if (is.fail ())
         {
-        cerr << "Bad vnum for exit " << dir << " for room " << vnum << endl;
+        is.clear ();
+        string dummy;
+        is >> dummy;
+        cerr << "Bad vnum '" << dummy << "' for exit " << dir << " for room " << vnum << endl;
         continue;
         }
-      
+
       // direction must be valid (eg. n, s, e, w) or it won't be recognised
       set<string>::const_iterator direction_iter = directionset.find (dir);
       if (direction_iter == directionset.end ())
         {
-        cerr << "Direction " << dir << " for room " << vnum 
+        cerr << "Direction " << dir << " for room " << vnum
              << " not in list of directions in control file" << endl;
         continue;
         }
-          
+
       // stop if nonsense
       if (dir.empty () || dir_vnum == 0)
         break;
-      
+
       room->exits [dir] = dir_vnum;   // add exit
-     
-      } // end of getting each direction      
+
+      } // end of getting each direction
     } // end of read loop
-  
+
 } // end of LoadRooms
 
 // build up our commands map and connection states
 void LoadThings ()
 {
-   
+
   LoadCommands ();
   LoadStates ();
-  
+
   // load files
   LoadControlFile ();
   LoadMessages ();
   LoadRooms ();
- 
+
 } // end of LoadThings
