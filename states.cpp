@@ -133,7 +133,7 @@ void ProcessConfirmPassword (tPlayer * p, istream & sArgs)
     }
   
   // that player might have been created while we were choosing a password, so check again
-  ifstream f ((PLAYER_DIR + tocapitals (password) + PLAYER_EXT).c_str (), ios::in);
+  ifstream f ((PLAYER_DIR + tocapitals (p->playername) + PLAYER_EXT).c_str (), ios::in);
   if (f || FindPlayer (password))  // player file on disk, or playing without saving yet
     {
     p->connstate = eAwaitingNewName;
