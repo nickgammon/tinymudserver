@@ -193,7 +193,7 @@ void DoTell (tPlayer * p, istream & sArgs)
   p->NeedNoFlag ("gagged"); // can't if gagged
   tPlayer * ptarget = p->GetPlayer (sArgs, "Tell whom?", true);  // who
   string what = GetMessage (sArgs, "Tell " + p->playername + " what?");  // what  
-  *p << "You tell " << p->playername << ", \"" << what << "\"\n";     // confirm
+  *p << "You tell " << ptarget->playername << ", \"" << what << "\"\n";     // confirm
   *ptarget << p->playername << " tells you, \"" << what << "\"\n";    // tell them
 } // end of DoTell
 
